@@ -34,7 +34,6 @@ def process_image(input_image):
 
     return input_image, processed_image, predicted_label, f"Confidence: {prediction_score:.2f}%"
 
-# UI menggunakan Gradio
 iface = gr.Interface(
     fn=process_image,
     inputs=gr.Image(type="numpy", image_mode='RGB', label="Upload Image"),
@@ -48,5 +47,4 @@ iface = gr.Interface(
     description="Upload a dark image to process and classify it using the pre-trained model."
 )
 
-# Menjalankan antarmuka
 iface.launch()

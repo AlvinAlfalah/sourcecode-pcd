@@ -1,0 +1,2 @@
+Upload Image,Original Image,Processed Image,Predicted Class,Prediction Confidence,timestamp
+.gradio\flagged\Upload Image\bf672abcf92b6b9b9514\a.jpg,.gradio\flagged\Original Image\13d7a7b0e0ad94a154ce\image.webp,.gradio\flagged\Processed Image\7b051e26619c10bd09cf\image.webp,bottle,Confidence: 65.22%,2024-12-30 11:32:26.640853

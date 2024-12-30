@@ -13,10 +13,10 @@ test_datagen = ImageDataGenerator(rescale=1.0/255.0)
 # Membaca data validasi dari folder
 validation_generator = test_datagen.flow_from_directory(
     os.path.join(dataset_path, 'validation'),
-    target_size=(224, 224),  # Ukuran input yang sesuai dengan model
+    target_size=(224, 224),  
     batch_size=32,
-    class_mode='categorical',  # Menggunakan mode kategorikal karena model menggunakan softmax
-    shuffle=False  # Penting untuk tidak melakukan shuffle agar urutan data sesuai dengan prediksi
+    class_mode='categorical', 
+    shuffle=False  
 )
 
 # Memuat model yang sudah dilatih
@@ -26,13 +26,13 @@ model = load_model('final_model.keras')
 y_true = validation_generator.classes
 
 # Melakukan prediksi pada data validasi
-steps = int(np.ceil(validation_generator.samples / validation_generator.batch_size))  # Mengonversi ke int
+steps = int(np.ceil(validation_generator.samples / validation_generator.batch_size)) 
 y_pred = model.predict(validation_generator, steps=steps, verbose=1)
-y_pred = np.argmax(y_pred, axis=1)  # Mengambil kelas prediksi dengan argmax
+y_pred = np.argmax(y_pred, axis=1)  
 
 # Menghitung metrik evaluasi
 accuracy = accuracy_score(y_true, y_pred)
-precision = precision_score(y_true, y_pred, average='macro')  # 'macro' untuk multi-kelas
+precision = precision_score(y_true, y_pred, average='macro')  
 recall = recall_score(y_true, y_pred, average='macro')
 f1 = f1_score(y_true, y_pred, average='macro')
 
